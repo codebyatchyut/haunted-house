@@ -252,7 +252,7 @@ export class HauntedHouse implements AfterViewInit, OnDestroy{
       metalnessMap: graveARMTexture,
       normalMap: graveNormalTexture
     });
-    for (var i = 0; i < 30; i++) {
+    for (let i = 0; i < 30; i++) {
       const grave = new THREE.Mesh(graveGeometry, graveMaterial);
       graves.add(grave);
       const angle = Math.random() * Math.PI * 2;
@@ -286,7 +286,7 @@ export class HauntedHouse implements AfterViewInit, OnDestroy{
     pointLight.position.y = 2.5;
     pointLight.position.z = 2.2;
 
-   // Ghosts
+    // Ghosts
     const ghost1 = new THREE.PointLight('#8800ff', 9)
     const ghost2 = new THREE.PointLight('#ff0088', 9)
     const ghost3 = new THREE.PointLight('#ff0000', 9)
@@ -294,8 +294,8 @@ export class HauntedHouse implements AfterViewInit, OnDestroy{
 
     // Tweaks
     const lightsFolder = gui.addFolder('Lights');
-    lightsFolder.add(ambientLight, 'intensity').min(0.5).max(4).step(0.01).name('AmbientLight');
-    lightsFolder.add(directionalLight, 'intensity').min(0.5).max(4).step(0.01).name('DirectionalLight');
+    lightsFolder.add(ambientLight, 'intensity').min(0).max(4).step(0.01).name('AmbientLight');
+    lightsFolder.add(directionalLight, 'intensity').min(0).max(4).step(0.01).name('DirectionalLight');
     const materialTweaks = gui.addFolder('MaterialTweaks');
     materialTweaks.add(floor.material, 'displacementScale').min(0).max(1).step(0.001).name('DisplacementScale');
     materialTweaks.add(floor.material, 'displacementBias').min(-1).max(1).step(0.001).name('DisplacementBias');
